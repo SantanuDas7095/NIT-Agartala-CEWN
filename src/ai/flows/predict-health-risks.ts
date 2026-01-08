@@ -16,7 +16,7 @@ const EmergencyReportSchema = z.object({
   reportId: z.string().describe('Unique identifier for the emergency report.'),
   studentName: z.string().describe('Name of the student involved.'),
   enrollmentNumber: z.string().describe("The student's enrollment number."),
-  year: z.number().describe("The student's current year of study."),
+  year: z.number().optional().describe("The student's current year of study."),
   location: z.string().describe('Location of the emergency.'),
   emergencyType: z.string().describe('Type of emergency (medical, safety, fire, etc.).'),
   timestamp: z.string().describe('ISO 8601 string timestamp of the emergency report.'),
