@@ -56,6 +56,26 @@ This application is built with a modern, robust, and scalable tech stack:
 -   **Image Uploads:** [Cloudinary](https://cloudinary.com/) for robust image hosting.
 -   **Deployment:** Configured for seamless deployment on [Vercel](https://vercel.com/).
 
+## 🚀 Google Technologies Used
+
+This project leverages a powerful suite of Google technologies to deliver a seamless, scalable, and intelligent experience:
+
+*   **Firebase:** A comprehensive application development platform.
+    *   **Firebase Authentication:** Provides secure and easy-to-use user login and identity management.
+    *   **Firestore:** A flexible, scalable NoSQL database for storing all application data in real-time.
+    *   **Firebase App Hosting:** A fully-managed, secure hosting service for web applications.
+
+*   **Google AI & Gemini:** Powers the application's intelligent features.
+    *   **Gemini Models:** State-of-the-art, multimodal AI models used for complex reasoning tasks, including:
+        *   **Predictive Health Analysis:** Analyzing campus-wide health data to identify emerging risks.
+        *   **Nutrition Tracking:** Understanding the content of a meal from a single image.
+        *   **First-Aid Chatbot:** Providing conversational, helpful advice for health queries.
+    *   **Genkit:** The open-source framework used to build, manage, and monitor the production-grade AI flows that connect the application to the Gemini models.
+
+*   **Firebase Studio:** The AI-assisted development environment used to bootstrap, build, and iterate on this application.
+
+*   **Google Fonts:** Delivers fast and efficient web fonts to ensure a consistent and high-quality user interface.
+
 ---
 
 ## ⚙️ Getting Started
