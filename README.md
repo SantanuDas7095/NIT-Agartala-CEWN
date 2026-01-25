@@ -122,7 +122,7 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/SantanuDas7095/NIT-Agartala-CEWN.git
     cd <your-repo-name>
     ```
 
