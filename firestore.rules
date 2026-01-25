@@ -1,0 +1,61 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return request.auth != null && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+    
+    match /userProfile/{userId} {
+      allow get, update, create: if isOwner(userId);
+      allow list: if isAdmin();
+      
+      match /nutritionLogs/{logId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+    
+    match /roles_admin/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+    }
+
+    match /emergencyReports/{reportId} {
+      allow create: if request.auth != null;
+      allow read, list: if isAdmin();
+    }
+
+    match /hospitalFeedbacks/{feedbackId} {
+      allow create: if request.auth != null;
+      allow get: if isOwner(request.resource.data.studentId);
+      allow list: if request.auth != null;
+    }
+
+    match /messFoodRatings/{ratingId} {
+      allow create: if request.auth != null;
+      allow get, list: if true;
+    }
+    
+    match /appointments/{appointmentId} {
+       allow create: if request.auth != null;
+       allow read, list: if request.auth != null;
+       // Allow admin to change status
+       // Allow user to cancel a scheduled appointment
+       // Allow user to add feedback to a completed appointment
+       allow update: if isAdmin() 
+          || (isOwner(resource.data.studentId) && request.resource.data.status == 'cancelled' && resource.data.status == 'scheduled')
+          || (isOwner(resource.data.studentId) && resource.data.status == 'completed' && request.resource.data.postVisitFeedback != null);
+    }
+
+    match /campusInfo/hospital {
+      allow get: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

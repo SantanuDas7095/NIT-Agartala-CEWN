@@ -1,0 +1,187 @@
+
+{
+  "entities": {
+    "EmergencyReport": {
+      "title": "Emergency Report",
+      "description": "A report of an emergency on campus.",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string", "description": "The ID of the student making the report." },
+        "studentName": { "type": "string", "description": "Name of the student." },
+        "enrollmentNumber": { "type": "string", "description": "The student's enrollment number." },
+        "year": { "type": "number", "description": "The student's current year of study." },
+        "location": { "type": "string", "description": "The location of the emergency (can be manually entered or fetched via GPS)." },
+        "emergencyType": { "type": "string", "description": "The type of emergency (e.g., Medical, Safety)." },
+        "timestamp": { "type": "string", "format": "date-time", "description": "When the report was created." },
+        "latitude": { "type": "number", "description": "The latitude of the emergency location." },
+        "longitude": { "type": "number", "description": "The longitude of the emergency location." }
+      },
+      "required": ["studentId", "studentName", "enrollmentNumber", "year", "location", "emergencyType", "timestamp"]
+    },
+    "HospitalFeedback": {
+      "title": "Hospital Feedback",
+      "description": "Feedback submitted by a student after a hospital visit.",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string", "description": "The ID of the student giving feedback." },
+        "waitingTime": { "type": "number", "description": "The time spent waiting, in minutes." },
+        "doctorAvailability": { "type": "string", "enum": ["available", "unavailable"] },
+        "postVisitFeedback": { "type": "string", "description": "The detailed feedback." },
+        "emergencyVsNormal": { "type": "string", "enum": ["emergency", "normal"] },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["studentId", "waitingTime", "doctorAvailability", "postVisitFeedback", "emergencyVsNormal", "timestamp"]
+    },
+    "MessFoodRating": {
+      "title": "Mess Food Rating",
+      "description": "A rating of the mess food quality.",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string", "description": "The ID of the student giving the rating." },
+        "messName": { "type": "string", "description": "The name of the mess being rated.", "enum": ["Gargi hostel mess", "Southern mess", "Northern mess", "Veg mess", "Rnt mess", "Eastern mess"] },
+        "mealType": { "type": "string", "description": "The type of meal being rated.", "enum": ["Breakfast", "Lunch", "Dinner", "Snacks"] },
+        "foodQualityRating": { "type": "number", "description": "A rating from 1 to 5." },
+        "sickAfterMealReport": { "type": "string", "enum": ["yes", "no"] },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "imageUrl": { "type": "string", "format": "uri", "description": "URL of an optional photo of the meal." }
+      },
+      "required": ["studentId", "messName", "mealType", "foodQualityRating", "sickAfterMealReport", "timestamp"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "A scheduled appointment at the campus hospital.",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "enrollmentNumber": { "type": "string" },
+        "appointmentDate": { "type": "string", "format": "date-time" },
+        "appointmentTime": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string", "enum": ["scheduled", "completed", "cancelled"], "default": "scheduled" },
+        "bookedBy": { "type": "string", "enum": ["student", "admin"], "default": "student" },
+        "waitingTime": { "type": "number", "description": "The time spent waiting, in minutes." },
+        "doctorAvailability": { "type": "string", "enum": ["available", "unavailable"] },
+        "postVisitFeedback": { "type": "string", "description": "The detailed feedback." }
+      },
+      "required": ["studentId", "studentName", "enrollmentNumber", "appointmentDate", "appointmentTime", "reason", "status"]
+    },
+    "UserProfile": {
+        "title": "User Profile",
+        "description": "Extended user profile information.",
+        "type": "object",
+        "properties": {
+            "uid": { "type": "string", "description": "The user's unique ID." },
+            "email": { "type": "string", "format": "email", "description": "The user's email address." },
+            "displayName": { "type": "string", "description": "The user's display name." },
+            "photoURL": { "type": "string", "format": "uri", "description": "URL of the user's profile picture." },
+            "enrollmentNumber": { "type": "string", "description": "The student's enrollment number." },
+            "hostel": { "type": "string", "description": "The student's hostel name and room number." },
+            "department": { "type": "string", "description": "The student's academic department." },
+            "year": { "type": "number", "description": "The student's current year of study." },
+            "phoneNumber": { "type": "string", "description": "The user's verified phone number." },
+            "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of profile creation." },
+            "updatedAt": { "type": "string", "format": "date-time", "description": "Timestamp of last profile update." }
+        },
+        "required": ["uid", "email"]
+    },
+    "AdminRole": {
+        "title": "Admin Role",
+        "description": "Defines an administrative user.",
+        "type": "object",
+        "properties": {}
+    },
+    "FirstAidChat": {
+      "title": "First-Aid Chat",
+      "description": "A chat session with the first-aid bot.",
+      "type": "object",
+      "properties": {
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": { "type": "string", "enum": ["user", "model"] },
+              "content": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "NutritionTracker": {
+      "title": "Nutrition Tracker",
+      "description": "Nutritional analysis of a meal from a photo.",
+      "type": "object",
+      "properties": {
+        "calories": { "type": "number" },
+        "proteinGrams": { "type": "number" },
+        "carbsGrams": { "type": "number" },
+        "fatGrams": { "type": "number" }
+      }
+    },
+    "DailyNutritionLog": {
+        "title": "Daily Nutrition Log",
+        "description": "A log of a user's nutritional intake for a single meal.",
+        "type": "object",
+        "properties": {
+            "userId": { "type": "string" },
+            "timestamp": { "type": "string", "format": "date-time" },
+            "calories": { "type": "number" },
+            "proteinGrams": { "type": "number" },
+            "carbsGrams": { "type": "number" },
+            "fatGrams": { "type": "number" },
+            "photoUrl": { "type": "string", "format": "uri" }
+        },
+        "required": ["userId", "timestamp", "calories", "proteinGrams", "carbsGrams", "fatGrams"]
+    },
+    "DoctorStatus": {
+      "title": "Doctor Status",
+      "description": "Represents the current status of the doctor in the campus hospital.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The name of the doctor." },
+        "specialty": { "type": "string", "description": "The doctor's specialty." },
+        "isAvailable": { "type": "boolean", "description": "Whether the doctor is currently available." },
+        "emergencyStatus": { "type": "string", "description": "A text description of the current campus emergency status." }
+      },
+      "required": ["name", "specialty", "isAvailable"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com", "password"]
+  },
+  "firestore": {
+    "/emergencyReports/{reportId}": {
+      "schema": { "$ref": "#/entities/EmergencyReport" },
+      "description": "Collection of all emergency reports."
+    },
+    "/hospitalFeedbacks/{feedbackId}": {
+      "schema": { "$ref": "#/entities/HospitalFeedback" },
+      "description": "Collection of all hospital feedback."
+    },
+    "/messFoodRatings/{ratingId}": {
+      "schema": { "$ref": "#/entities/MessFoodRating" },
+      "description": "Collection of all mess food ratings."
+    },
+    "/appointments/{appointmentId}": {
+      "schema": { "$ref": "#/entities/Appointment" },
+      "description": "Collection of all student appointments."
+    },
+    "/userProfile/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Stores extended user profile information. The document ID is the user's UID."
+    },
+    "/roles_admin/{userId}": {
+        "schema": { "$ref": "#/entities/AdminRole" },
+        "description": "A collection where the document ID is the UID of an admin user."
+    },
+    "/userProfile/{userId}/nutritionLogs/{logId}": {
+      "schema": { "$ref": "#/entities/DailyNutritionLog" },
+      "description": "Stores a user's daily nutrition logs in a sub-collection under their profile."
+    },
+    "/campusInfo/hospital": {
+      "schema": { "$ref": "#/entities/DoctorStatus" },
+      "description": "A singleton document holding the current hospital status."
+    }
+  }
+}

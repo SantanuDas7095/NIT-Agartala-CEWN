@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 8% 91%;
+    --foreground: 220 39% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 39% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 10%;
+    --primary: 220 39% 26%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 225 8% 85%;
+    --secondary-foreground: 220 39% 10%;
+    --muted: 225 8% 85%;
+    --muted-foreground: 225 8% 45%;
+    --accent: 25 100% 41%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 225 8% 80%;
+    --input: 225 8% 85%;
+    --ring: 220 39% 26%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 20% 12%;
+    --foreground: 0 0% 98%;
+    --card: 220 20% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 220 39% 60%;
+    --primary-foreground: 220 39% 10%;
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 25 100% 55%;
+    --accent-foreground: 220 39% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 220 39% 60%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Hide spinner from number inputs */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
