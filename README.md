@@ -8,15 +8,15 @@
 
 Large university campuses often struggle with fragmented systems for student welfare:
 - **Slow Emergency Response:** Emergency reporting is often manual (phone calls, word-of-mouth), leading to critical delays in getting help to the right location.
-- **Lack of Transparency:** Students have no visibility into medical center wait times or doctor availability, leading to frustration and inefficient use of health services.
+- **Lack of Transparency:** Students have no visibility into medical centre wait times or doctor availability, leading to frustration and inefficient use of health services.
 - **Reactive Health Management:** Issues like foodborne illnesses from campus messes are often discovered only after many students are already affected.
-- **No Centralized Data:** Administrators lack the aggregated, real-time data needed to identify trends, predict risks, and make informed decisions to improve campus life.
+- **No Centralised Data:** Administrators lack the aggregated, real-time data needed to identify trends, predict risks, and make informed decisions to improve campus life.
 
 ## ✨ The Solution: A Unified & Proactive Platform
 
 The CEWN platform solves these issues by providing a suite of interconnected tools:
 
-### Key Featuresn
+### Key Features
 
 *   🚨 **Emergency SOS System**
     - One-tap alerts for Medical, Safety, Fire, or Hostel issues.
@@ -56,7 +56,6 @@ This application is built with a modern, robust, and scalable tech stack:
 -   **Image Uploads:** [Cloudinary](https://cloudinary.com/) for robust image hosting.
 -   **Deployment:** Configured for seamless deployment on [Vercel](https://vercel.com/).
 
----
 
 ## 🚀 Google Technologies Used
 
@@ -136,5 +135,30 @@ To get a local copy up and running, follow these simple steps.
     ```bash
     npm run dev
     ```
+## Deployment on Vercel 🌐
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Vercel offers an easy way to deploy MERN applications by recognizing both the frontend and backend.
+
+1.  Connect your GitHub repository to your Vercel account.
+2.  Vercel will automatically detect the React app in the `frontend` directory and the Node.js API in the `backend` directory.
+3.  Ensure you have added your environment variables to your Vercel project settings.
+
+
+## Contributing 🙏
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/SantanuDas7095/NIT-Agartala-CEWN/issues).
+
+1.  Fork the repository.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'feat: Add a new feature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+## Contact 📧
+
+* Santanu Das
+* Email : santanudas8506@gmail.com
+* **Github :** [Github](https://github.com/SantanuDas7095)
+* **Linkedin :** [Linkedin](https://www.linkedin.com/in/santanu-das123)
+
+Project Link: [NIT-Agartala-CEWN](https://nit-agartala-cewn.vercel.app)
