@@ -1,7 +1,5 @@
 # NIT Agartala CEWN (Campus Emergency & Wellness Network)
 
-![Campus Hero Image](public/images/hero-campus.jpg)
-
 **NIT Agartala CEWN** is a unified digital platform designed to create a real-time, transparent, and data-driven ecosystem for managing student safety, health, and wellness. It addresses critical delays and communication gaps in campus services by integrating emergency response, medical service transparency, and food safety monitoring into a single, accessible application for students and administrators.
 
 ---
@@ -140,6 +138,3 @@ To get a local copy up and running, follow these simple steps.
     ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
----
-This project was bootstrapped and developed with **Firebase Studio**.
