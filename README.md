@@ -16,7 +16,7 @@ Large university campuses often struggle with fragmented systems for student wel
 
 The CEWN platform solves these issues by providing a suite of interconnected tools:
 
-### Key Features
+### Key Featuresn
 
 *   🚨 **Emergency SOS System**
     - One-tap alerts for Medical, Safety, Fire, or Hostel issues.
